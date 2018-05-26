@@ -8,8 +8,13 @@
   line-height: 1;
   padding: $s-size;
   text-decoration: none;
+  transition: .5s;
 }
-.button--link {
+.button:hover {
+  background: darken($bright-blue, 5%);
+}
+.button--link,
+.button--link:hover {
   background: none;
 }
 .button--secondary {
