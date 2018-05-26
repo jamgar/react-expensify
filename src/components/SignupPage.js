@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { startCreateUserWithEmailAndPassword } from '../actions/auth'
 
-export default class SignupPage extends React.Component {
+export class SignupPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -32,12 +32,12 @@ export default class SignupPage extends React.Component {
   }
   onSubmit = (e) => {
     e.preventDefault()
-
+    const { email, password } = this.state
     if (this.isInvalid()) {
       this.setState({ error: 'Invalid email or passwords do not match.'})
     } else {
       this.setState({ error: '' })
-      console.log(this.state);
+      this.props.startCreateUserWithEmailAndPassword(email, password)
     }
   }
   render() {
@@ -93,6 +93,12 @@ export default class SignupPage extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  startCreateUserWithEmailAndPassword: (email, password) => dispatch(startCreateUserWithEmailAndPassword(email, password))
+})
+
+export default connect(undefined, mapDispatchToProps)(SignupPage)
 
 export const SignUpLink = () => (
   <p>

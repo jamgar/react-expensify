@@ -7,7 +7,7 @@ export const login = (uid) => ({
 
 export const startCreateUserWithEmailAndPassword = (email, password) => {
   return () => {
-    firebase.auth.createUserWithEmailAndPassword(email, password)
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
   }
 }
 
