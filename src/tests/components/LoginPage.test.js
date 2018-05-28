@@ -2,11 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { LoginPage } from '../../components/LoginPage'
 
-let startLogin, wrapper
+let startLoginWithGoogle, wrapper
 
 beforeEach(() => {
-  startLogin = jest.fn()
-  wrapper = shallow(<LoginPage startLogin={startLogin} />)
+  startLoginWithGoogle = jest.fn()
+  wrapper = shallow(<LoginPage startLoginWithGoogle={startLoginWithGoogle} />)
 })
 
 test('should render LoginPage correctly', () => {
@@ -15,5 +15,5 @@ test('should render LoginPage correctly', () => {
 
 test('should call startLogin on button click', () => {
   wrapper.find('button').simulate('click')
-  expect(startLogin).toHaveBeenLastCalledWith()
+  expect(startLoginWithGoogle).toHaveBeenLastCalledWith()
 })

@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SignupPage correctly 1`] = `
+<div>
+  <div
+    className="page-header page-header--centered"
+  >
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Sign Up
+      </h1>
+    </div>
+  </div>
+  <div
+    className="content-container content-container--sm"
+  >
+    <form
+      className="form"
+      onSubmit={[Function]}
+    >
+      <input
+        autoFocus={true}
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Email Address"
+        type="email"
+        value=""
+      />
+      <input
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <input
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Password Confirmation"
+        type="password"
+        value=""
+      />
+      <button
+        className="button"
+        type="submit"
+      >
+        Sign Up
+      </button>
+      <p>
+        <Link
+          className="link"
+          replace={false}
+          to="/"
+        >
+          Cancel
+        </Link>
+      </p>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should render error with invalid form submission 1`] = `
+<div>
+  <div
+    className="page-header page-header--centered"
+  >
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Sign Up
+      </h1>
+    </div>
+  </div>
+  <div
+    className="content-container content-container--sm"
+  >
+    <form
+      className="form"
+      onSubmit={[Function]}
+    >
+      <input
+        autoFocus={true}
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Email Address"
+        type="email"
+        value=""
+      />
+      <input
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <input
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Password Confirmation"
+        type="password"
+        value=""
+      />
+      <button
+        className="button"
+        type="submit"
+      >
+        Sign Up
+      </button>
+      <p>
+        <Link
+          className="link"
+          replace={false}
+          to="/"
+        >
+          Cancel
+        </Link>
+      </p>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`should render error with invalid form submission 2`] = `
+<div>
+  <div
+    className="page-header page-header--centered"
+  >
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Sign Up
+      </h1>
+    </div>
+  </div>
+  <div
+    className="content-container content-container--sm"
+  >
+    <form
+      className="form"
+      onSubmit={[Function]}
+    >
+      <p
+        className="form__error"
+      >
+        Invalid email or passwords do not match.
+      </p>
+      <input
+        autoFocus={true}
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Email Address"
+        type="email"
+        value=""
+      />
+      <input
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <input
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Password Confirmation"
+        type="password"
+        value=""
+      />
+      <button
+        className="button"
+        type="submit"
+      >
+        Sign Up
+      </button>
+      <p>
+        <Link
+          className="link"
+          replace={false}
+          to="/"
+        >
+          Cancel
+        </Link>
+      </p>
+    </form>
+  </div>
+</div>
+`;

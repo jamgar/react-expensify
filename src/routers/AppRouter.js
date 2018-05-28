@@ -5,6 +5,7 @@ import AddExpensePage from '../components/AddExpensePage'
 import EditExpensePage from '../components/EditExpensePage'
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage'
 import LoginPage from '../components/LoginPage'
+import LoginPageForm from '../components/LoginPageForm'
 import SignupPage from '../components/SignupPage'
 import NotFoundPage from '../components/NotFoundPage'
 import PrivateRoute from './PrivateRoute'
@@ -18,6 +19,7 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true}/>
         <PublicRoute path="/signup" component={SignupPage}/>
+        <PublicRoute path="/login" component={LoginPageForm}/>
         <PrivateRoute path="/dashboard" component={ExpenseDashboardPage}/>
         <PrivateRoute path="/create" component={AddExpensePage}/>
         <PrivateRoute path="/edit/:id" component={EditExpensePage}/>

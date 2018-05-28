@@ -1,22 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { startCreateUserWithEmailAndPassword } from '../actions/auth'
+import { SignUpLink } from './SignUpLink'
+import { startSignInWithEmailAndPassword } from '../actions/auth'
 
-export class SignupPage extends React.Component {
+class LoginPageForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       email: '',
       password: '',
-      passwordConfirmation: '',
       error: ''
     }
   }
   isInvalid = () => (
-    this.state.password !== this.state.passwordConfirmation ||
-    this.state.password === '' ||
-    this.state.email === ''
+    this.state.email === '' || this.state.password === ''
   )
   onEmailChange = (e) => {
     const email = e.target.value
@@ -26,32 +24,27 @@ export class SignupPage extends React.Component {
     const password = e.target.value
     this.setState({ password })
   }
-  onPasswordConfirmationChange = (e) => {
-    const passwordConfirmation = e.target.value
-    this.setState({ passwordConfirmation })
-  }
   onSubmit = (e) => {
-    e.preventDefault()
     const { email, password } = this.state
+    e.preventDefault()
     if (this.isInvalid()) {
-      this.setState({ error: 'Invalid email or passwords do not match.'})
+      this.setState({ error: 'Invalid email or password.'})
     } else {
       this.setState({ error: '' })
-      this.props.startCreateUserWithEmailAndPassword(email, password)
+      this.props.startSignInWithEmailAndPassword(email, password)
     }
   }
   render() {
     const {
       email,
       password,
-      passwordConfirmation,
       error
     } = this.state
     return (
       <div>
         <div className="page-header page-header--centered">
           <div className="content-container">
-            <h1 className="page-header__title">Sign Up</h1>
+            <h1 className="page-header__title">Login</h1>
           </div>
         </div>
         <div className="content-container content-container--sm">
@@ -72,20 +65,14 @@ export class SignupPage extends React.Component {
               value={password}
               onChange={this.onPasswordChange}
             />
-            <input
-              type="password"
-              className="text-input"
-              placeholder="Password Confirmation"
-              value={passwordConfirmation}
-              onChange={this.onPasswordConfirmationChange}
-            />
             <button type="submit" className="button">
-              Sign Up
+              Log In
             </button>
             <Link className="link" to='/'>
-              Cancel
+            Cancel
             </Link>
           </form>
+          <SignUpLink />
         </div>
       </div>
     )
@@ -93,7 +80,7 @@ export class SignupPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startCreateUserWithEmailAndPassword: (email, password) => dispatch(startCreateUserWithEmailAndPassword(email, password))
+  startSignInWithEmailAndPassword: (email, password) => dispatch(startSignInWithEmailAndPassword(email, password))
 })
 
-export default connect(undefined, mapDispatchToProps)(SignupPage)
+export default connect(undefined, mapDispatchToProps)(LoginPageForm)

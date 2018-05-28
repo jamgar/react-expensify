@@ -5,6 +5,12 @@ export const login = (uid) => ({
   uid
 })
 
+export const startSignInWithEmailAndPassword = (email, password) => {
+  return () => {
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+  }
+}
+
 export const startCreateUserWithEmailAndPassword = (email, password) => {
   return () => {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
