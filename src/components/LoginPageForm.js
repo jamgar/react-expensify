@@ -32,6 +32,28 @@ class LoginPageForm extends React.Component {
     } else {
       this.setState({ error: '' })
       this.props.startSignInWithEmailAndPassword(email, password)
+        .then(() => {
+          console.log('Logged in successfully.');
+        })
+        .catch(error => {
+          let message
+
+          switch (error.code) {
+            case 'auth/user-not-found':
+              message = 'User with this email not found.'
+              break;
+            case 'auth/invalid-email':
+              message = 'The email is invalid.'
+              break;
+            case 'auth/wrong-password':
+              message = 'The password is invalid.'
+              break;
+            default:
+              message = 'Something went wrong.'
+              console.log('Auth Error:', error)
+          }
+          this.setState({ error: `${message} Please try again.` })
+        })
     }
   }
   render() {
