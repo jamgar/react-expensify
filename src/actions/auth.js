@@ -23,6 +23,12 @@ export const startLoginWithGoogle = () => {
   }
 }
 
+export const startPasswordReset = (email) => {
+  return () => {
+    return firebase.auth().sendPasswordResetEmail(email)
+  }
+}
+
 export const logout = () => ({
   type: 'LOGOUT'
 })

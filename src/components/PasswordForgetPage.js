@@ -1,39 +1,37 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { SignUpLink } from './SignUpLink'
-import { startSignInWithEmailAndPassword } from '../actions/auth'
+import { history } from '../routers/AppRouter'
+import { startPasswordReset } from '../actions/auth'
 
-class LoginPageForm extends React.Component {
+export class PasswordForgetPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       email: '',
-      password: '',
       error: ''
     }
   }
-  isInvalid = () => (
-    this.state.email === '' || this.state.password === ''
-  )
+  isInvalid = () => {
+    this.state.email === ''
+  }
   onEmailChange = (e) => {
     const email = e.target.value
     this.setState({ email })
   }
-  onPasswordChange = (e) => {
-    const password = e.target.value
-    this.setState({ password })
-  }
   onSubmit = (e) => {
-    const { email, password } = this.state
     e.preventDefault()
     if (this.isInvalid()) {
-      this.setState({ error: 'Invalid email or password.'})
+      this.setState({ error: 'Please enter an email'})
     } else {
       this.setState({ error: '' })
-      this.props.startSignInWithEmailAndPassword(email, password)
+      this.props.startPasswordReset(this.state.email)
         .then(() => {
-          console.log('Logged in successfully.');
+          console.log('Email sent...')
+          this.setState({ error: 'Please check your email for a password reset link.'})
+          setTimeout(() => {
+            history.push('/')
+          }, 5000)
         })
         .catch(error => {
           let message
@@ -45,28 +43,25 @@ class LoginPageForm extends React.Component {
             case 'auth/invalid-email':
               message = 'The email is invalid.'
               break;
-            case 'auth/wrong-password':
-              message = 'The password is invalid.'
-              break;
             default:
               message = 'Something went wrong.'
               console.log('Auth Error:', error)
           }
-          this.setState({ error: `${message} Please try again.` })
+          this.setState({ error: `${message} Please try again.`})
         })
     }
   }
   render() {
     const {
       email,
-      password,
       error
     } = this.state
+
     return (
       <div>
         <div className="page-header page-header--centered">
           <div className="content-container">
-            <h1 className="page-header__title">Login</h1>
+            <h1 className="page-header__title">Password Forget</h1>
           </div>
         </div>
         <div className="content-container content-container--sm">
@@ -80,24 +75,13 @@ class LoginPageForm extends React.Component {
               value={email}
               onChange={this.onEmailChange}
             />
-            <input
-              type="password"
-              className="text-input"
-              placeholder="Password"
-              value={password}
-              onChange={this.onPasswordChange}
-            />
-            <button type="submit" className="button">
-              Log In
+            <button className="button" type="submit">
+              Send Reset Email
             </button>
             <Link className="link" to='/'>
-            Cancel
-            </Link>
-            <Link className="link" to='/password-forget'>
-              Forgot Password
+              Cancel
             </Link>
           </form>
-          <SignUpLink />
         </div>
       </div>
     )
@@ -105,7 +89,7 @@ class LoginPageForm extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startSignInWithEmailAndPassword: (email, password) => dispatch(startSignInWithEmailAndPassword(email, password))
+  startPasswordReset: (email) => dispatch(startPasswordReset(email))
 })
 
-export default connect(undefined, mapDispatchToProps)(LoginPageForm)
+export default connect(undefined, mapDispatchToProps)(PasswordForgetPage)
