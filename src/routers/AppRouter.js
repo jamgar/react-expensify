@@ -4,6 +4,7 @@ import createHistory from 'history/createBrowserHistory'
 import NotFoundPage from '../components/NotFoundPage'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
+import DashboardPage from '../components/DashboardPage'
 // Login and Signup
 import LoginPage from '../components/LoginPage'
 import LoginPageForm from '../components/LoginPageForm'
@@ -26,6 +27,7 @@ const AppRouter = () => (
         <PublicRoute path="/signup" component={SignupPage}/>
         <PublicRoute path="/login" component={LoginPageForm}/>
         <PublicRoute path="/password-forget" component={PasswordForgetPage}/>
+        <PrivateRoute path="/dashboard" component={DashboardPage}/>
         <PrivateRoute path="/expense-dashboard" component={ExpenseDashboardPage}/>
         <PrivateRoute path="/expense-create" component={AddExpensePage}/>
         <PrivateRoute path="/expense-edit/:id" component={EditExpensePage}/>
