@@ -15,7 +15,8 @@ import AddExpensePage from '../components/AddExpensePage'
 import EditExpensePage from '../components/EditExpensePage'
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage'
 // Income
-import IncomeDashboardPage from '../components/Income/IncomeDashboardPage'
+import DepositDashboardPage from '../components/Deposit/DepositDashboardPage'
+import AddDepositPage from '../components/Deposit/AddDepositPage'
 
 export const history = createHistory()
 
@@ -31,7 +32,8 @@ const AppRouter = () => (
         <PrivateRoute path="/expense-dashboard" component={ExpenseDashboardPage}/>
         <PrivateRoute path="/expense-create" component={AddExpensePage}/>
         <PrivateRoute path="/expense-edit/:id" component={EditExpensePage}/>
-        <PrivateRoute path="/income-dashboard" component={IncomeDashboardPage}/>
+        <PrivateRoute path="/deposit-dashboard" component={DepositDashboardPage}/>
+        <PrivateRoute path="/deposit-create" component={AddDepositPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>

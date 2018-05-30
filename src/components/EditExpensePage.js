@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import ExpenseForm from './ExpenseForm'
 import { startEditExpense, startRemoveExpense } from '../actions/expenses'
 
@@ -26,7 +27,7 @@ export class EditExpensePage extends React.Component {
             onSubmit={this.onSubmit}
           />
           <div>
-          <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
+            <button className="button button--danger" onClick={this.onRemove}>Remove Expense</button>
           </div>
         </div>
       </div>

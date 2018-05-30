@@ -7,7 +7,7 @@ const DashboardPage = () => (
       <Link to='/expense-dashboard' className="button">View Expenses</Link>
     </p>
     <p>
-      <Link to='/income-dashboard' className="button">View Income</Link>
+      <Link to='/deposit-dashboard' className="button">View Deposits</Link>
     </p>
   </div>
 )

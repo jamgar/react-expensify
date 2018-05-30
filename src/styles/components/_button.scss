@@ -20,3 +20,15 @@
 .button--secondary {
   background-color: #888888;
 }
+.button--secondary:hover {
+  background-color: darken(#888888, 8%);
+}
+.button--danger {
+  background-color: #fd5a5a;
+}
+.button--danger:hover {
+  background-color: darken(#fd5a5a, 8%);
+}
+.button--margin-right {
+  margin-right: $s-size;
+}

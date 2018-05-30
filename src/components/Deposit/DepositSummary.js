@@ -1,20 +1,19 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-const IncomeSummary = () => {
+const DepositSummary = () => {
   return (
     <div className="page-header">
       <div className="content-container">
         <h1 className="page-header__title">
-          IncomeSummary
+          DepositSummary
         </h1>
         <div className="page-header__actions">
-          <Link className="button" to="/income-create">Add Income</Link>
+          <Link className="button" to="/deposit-create">Add Deposit</Link>
         </div>
       </div>
     </div>
   )
 }
 
-export default IncomeSummary
+export default DepositSummary
