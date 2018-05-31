@@ -26,3 +26,27 @@ export const startAddDeposit = (depositData = {}) => {
     })
   }
 }
+
+// Set Depost
+export const setDeposits = (deposits) => ({
+  type: 'SET_DEPOSITS',
+  deposits
+})
+
+export const startSetDeposits = () => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    return database.ref(`users/${uid}/deposits`).once('value').then((snapshot) => {
+      const deposits = []
+
+      snapshot.forEach((childSnapshot) => {
+        deposits.push({
+          id: snapshot.key,
+          ...childSnapshot.val()
+        })
+      })
+
+      dispatch(setDeposits(deposits))
+    })
+  }
+}

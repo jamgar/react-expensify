@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import expensesReducer from '../reducers/expenses'
 import filtersReducer from '../reducers/filters'
 import authReducer from '../reducers/auth'
-import incomeReducer from '../reducers/income'
+import depositsReducer from '../reducers/deposit'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -13,7 +13,7 @@ export default () => {
       expenses: expensesReducer,
       filters: filtersReducer,
       auth: authReducer,
-      income: incomeReducer
+      deposits: depositsReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   )
