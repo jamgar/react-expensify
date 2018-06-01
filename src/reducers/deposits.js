@@ -24,6 +24,9 @@ export default (state = depositsReducerDefaultState, action) => {
         }
       })
       break;
+    case 'REMOVE_DEPOSIT':
+      return state.filter(({ id }) => id !== action.id)
+      break;
     default:
       return state
   }

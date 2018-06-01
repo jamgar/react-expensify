@@ -67,3 +67,19 @@ export const startEditDeposit = (id, updates) => {
     })
   }
 }
+
+// Remove Deposit
+export const removeDeposit = ({ id } = {}) => ({
+  type: 'REMOVE_DEPOSIT',
+  id
+})
+
+export const startRemoveDeposit = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    const path = `users/${uid}/deposits/${id}`
+    return database.ref(path).remove().then(() => {
+      dispatch(removeDeposit({ id }))
+    })
+  }
+}

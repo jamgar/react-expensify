@@ -2,11 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import DepositForm from './DepositForm'
-import { startEditDeposit } from '../../actions/deposits'
+import { startEditDeposit, startRemoveDeposit } from '../../actions/deposits'
 
 export class EditDepositPage extends React.Component {
   onSubmit = (deposit) => {
     this.props.startEditDeposit(this.props.deposit.id, deposit)
+    this.props.history.push('/deposit-dashboard')
+  }
+  onRemove = () => {
+    this.props.startRemoveDeposit({ id: this.props.deposit.id })
     this.props.history.push('/deposit-dashboard')
   }
   render() {
@@ -22,6 +26,9 @@ export class EditDepositPage extends React.Component {
             deposit={this.props.deposit}
             onSubmit={this.onSubmit}
           />
+          <button className="button button--danger" onClick={this.onRemove}>
+          Remove Deposit
+          </button>
         </div>
       </div>
     )
@@ -33,7 +40,8 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  startEditDeposit: (id, deposit) => dispatch(startEditDeposit(id, deposit))
+  startEditDeposit: (id, deposit) => dispatch(startEditDeposit(id, deposit)),
+  startRemoveDeposit: (id) => dispatch(startRemoveDeposit(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditDepositPage)
