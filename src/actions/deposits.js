@@ -41,7 +41,7 @@ export const startSetDeposits = () => {
 
       snapshot.forEach((childSnapshot) => {
         deposits.push({
-          id: snapshot.key,
+          id: childSnapshot.key,
           ...childSnapshot.val()
         })
       })
