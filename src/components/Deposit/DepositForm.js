@@ -11,7 +11,7 @@ export default class DepositForm extends React.Component {
     this.state = {
       description: props.deposit ? props.deposit.description : '',
       note: props.deposit ? props.deposit.note : '',
-      amount: props.deposit ? (props.deposit.amount / 100).toString : '',
+      amount: props.deposit ? (props.deposit.amount / 100).toString() : '',
       createdAt: props.deposit ? moment(props.deposit.createdAt) : moment(),
       calendarFocused: false,
       error: ''

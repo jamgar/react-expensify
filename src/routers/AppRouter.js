@@ -14,9 +14,10 @@ import SignupPage from '../components/SignupPage'
 import AddExpensePage from '../components/AddExpensePage'
 import EditExpensePage from '../components/EditExpensePage'
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage'
-// Income
+// Deposit
 import DepositDashboardPage from '../components/Deposit/DepositDashboardPage'
 import AddDepositPage from '../components/Deposit/AddDepositPage'
+import EditDepositPage from '../components/Deposit/EditDepositPage'
 
 export const history = createHistory()
 
@@ -29,11 +30,14 @@ const AppRouter = () => (
         <PublicRoute path="/login" component={LoginPageForm}/>
         <PublicRoute path="/password-forget" component={PasswordForgetPage}/>
         <PrivateRoute path="/dashboard" component={DashboardPage}/>
+
         <PrivateRoute path="/expense-dashboard" component={ExpenseDashboardPage}/>
         <PrivateRoute path="/expense-create" component={AddExpensePage}/>
         <PrivateRoute path="/expense-edit/:id" component={EditExpensePage}/>
+
         <PrivateRoute path="/deposit-dashboard" component={DepositDashboardPage}/>
         <PrivateRoute path="/deposit-create" component={AddDepositPage}/>
+        <PrivateRoute path="/deposit-edit/:id" component={EditDepositPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>

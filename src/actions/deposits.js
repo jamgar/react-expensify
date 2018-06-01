@@ -27,7 +27,7 @@ export const startAddDeposit = (depositData = {}) => {
   }
 }
 
-// Set Depost
+// Set Deposit
 export const setDeposits = (deposits) => ({
   type: 'SET_DEPOSITS',
   deposits
@@ -47,6 +47,23 @@ export const startSetDeposits = () => {
       })
 
       dispatch(setDeposits(deposits))
+    })
+  }
+}
+
+// Edit Deposit
+export const editDeposit = (id, updates) => ({
+  type: 'EDIT_DEPOSIT',
+  id,
+  updates
+})
+
+export const startEditDeposit = (id, updates) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    const path = `users/${uid}/deposits/${id}`
+    return database.ref(path).update(updates).then(() => {
+      dispatch(editDeposit(id, updates))
     })
   }
 }

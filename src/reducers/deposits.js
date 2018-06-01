@@ -12,6 +12,18 @@ export default (state = depositsReducerDefaultState, action) => {
     case 'SET_DEPOSITS':
       return action.deposits
       break;
+    case 'EDIT_DEPOSIT':
+      return state.map((deposit) => {
+        if (deposit.id === action.id) {
+          return {
+            ...deposit,
+            ...action.updates
+          }
+        } else {
+          return deposit
+        }
+      })
+      break;
     default:
       return state
   }
