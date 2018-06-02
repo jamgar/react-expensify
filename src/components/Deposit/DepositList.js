@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import DepositListItem from './DepositListItem'
+import selectDeposits from '../../selectors/selectors'
 
 export const DepositList = (props) => (
   <div className="content-container">
@@ -27,7 +28,7 @@ export const DepositList = (props) => (
 
 const mapStateToProps = (state) => {
   return {
-    deposits: state.deposits
+    deposits: selectDeposits(state.deposits, state.filters)
   }
 }
 

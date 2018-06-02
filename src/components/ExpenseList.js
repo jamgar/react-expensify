@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import ExpenseListItem from './ExpenseListItem'
-import selectExpenses from '../selectors/expenses'
+import selectExpenses from '../selectors/selectors'
 
 export const ExpenseList = (props) => (
   <div className="content-container">
@@ -15,7 +14,7 @@ export const ExpenseList = (props) => (
       {
         props.expenses.length === 0 ? (
           <div className="list-item list-item--message">
-          <span>No expenses</span>
+            <span>No expenses</span>
           </div>
         ) : (
           props.expenses.map((expense) => (

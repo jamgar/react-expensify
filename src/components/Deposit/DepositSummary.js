@@ -1,12 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import numeral from 'numeral'
+import selectDeposits from '../../selectors/selectors'
+import selectDepositsTotal from '../../selectors/selectors-total'
 
-const DepositSummary = () => {
+export const DepositSummary = ({ depositCount, depositsTotal}) => {
+  const depositWord = depositCount === 1 ? 'deposit' : 'deposits'
+  const formatedTotal = numeral(depositsTotal / 100).format('0,00.00')
   return (
     <div className="page-header">
       <div className="content-container">
         <h1 className="page-header__title">
-          DepositSummary
+          Viewing <span>{depositCount}</span> {depositWord} totalling <span>${formatedTotal}</span>
         </h1>
         <div className="page-header__actions">
           <Link className="button" to="/deposit-create">Add Deposit</Link>
@@ -16,4 +22,11 @@ const DepositSummary = () => {
   )
 }
 
-export default DepositSummary
+const mapStateToProps = (state) => {
+  const visibleDeposits = selectDeposits(state.deposits, state.filters)
+  return {
+    depositCount: visibleDeposits.length,
+    depositsTotal: selectDepositsTotal(visibleDeposits)
+  }
+}
+export default connect(mapStateToProps)(DepositSummary)
