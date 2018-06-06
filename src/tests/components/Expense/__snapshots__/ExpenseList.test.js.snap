@@ -10,7 +10,7 @@ exports[`should render ExpenseList with empty list 1`] = `
     <div
       className="show-for-mobile"
     >
-      Expenses
+      Expense
     </div>
     <div
       className="show-for-desktop"
@@ -47,7 +47,7 @@ exports[`should render ExpenseList with expenses 1`] = `
     <div
       className="show-for-mobile"
     >
-      Expenses
+      Expense
     </div>
     <div
       className="show-for-desktop"

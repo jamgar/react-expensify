@@ -1,21 +1,21 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import moment from 'moment'
-import ExpenseForm from '../../components/ExpenseForm'
-import expenses from '../fixtures/expenses'
+import DepositForm from '../../../components/Deposit/DepositForm'
+import deposits from '../../fixtures/deposits'
 
-test('should render ExpenseForm correctly', () => {
-  const wrapper = shallow(<ExpenseForm />)
+test('should render DepositForm correctly', () => {
+  const wrapper = shallow(<DepositForm />)
   expect(wrapper).toMatchSnapshot()
 })
 
-test('should render ExpenseForm with expense data', () => {
-  const wrapper = shallow(<ExpenseForm expense={expenses[0]} />)
+test('should render DepositForm with deposit data', () => {
+  const wrapper = shallow(<DepositForm deposit={deposits[1]} />)
   expect(wrapper).toMatchSnapshot()
 })
 
-test('should render error for invalid form submission', () => {
-  const wrapper = shallow(<ExpenseForm />)
+test('should render error for invalid submission', () => {
+  const wrapper = shallow(<DepositForm />)
   expect(wrapper).toMatchSnapshot()
   wrapper.find('form').simulate('submit', {
     preventDefault: () => {}
@@ -25,8 +25,8 @@ test('should render error for invalid form submission', () => {
 })
 
 test('should set description on input change', () => {
-  const value = 'New Description'
-  const wrapper = shallow(<ExpenseForm />)
+  const value = 'New Deposit'
+  const wrapper = shallow(<DepositForm />)
   wrapper.find('input').at(0).simulate('change', {
     target: { value }
   })
@@ -34,57 +34,57 @@ test('should set description on input change', () => {
 })
 
 test('should set note on textarea change', () => {
-  const value = 'New Note'
-  const wrapper = shallow(<ExpenseForm />)
+  const value = 'New deposit note'
+  const wrapper = shallow(<DepositForm />)
   wrapper.find('textarea').at(0).simulate('change', {
     target: { value }
   })
   expect(wrapper.state('note')).toBe(value)
 })
 
-test('should set amount if valid input', () => {
-  const value = '12.34'
-  const wrapper = shallow(<ExpenseForm />)
+test('should set valid amount on input change', () => {
+  const value = '123.45'
+  const wrapper = shallow(<DepositForm />)
   wrapper.find('input').at(1).simulate('change', {
     target: { value }
   })
   expect(wrapper.state('amount')).toBe(value)
 })
 
-test('should not set amount if invalid input', () => {
+test('should not set invalid amount on input change', () => {
   const value = '12.345'
-  const wrapper = shallow(<ExpenseForm />)
+  const wrapper = shallow(<DepositForm />)
   wrapper.find('input').at(1).simulate('change', {
     target: { value }
   })
   expect(wrapper.state('amount')).toBe('')
 })
 
-test('should call onSubmit prop for valid form submission', () => {
+test('should call onSubmit prop on valid form submission', () => {
   const onSubmitSpy = jest.fn()
-  const wrapper = shallow(<ExpenseForm expense={expenses[0]} onSubmit={onSubmitSpy} />)
+  const wrapper = shallow(<DepositForm deposit={deposits[1]} onSubmit={onSubmitSpy} />)
   wrapper.find('form').simulate('submit', {
     preventDefault: () => {}
   })
   expect(wrapper.state('error')).toBe('')
   expect(onSubmitSpy).toHaveBeenLastCalledWith({
-    description: expenses[0].description,
-    amount: expenses[0].amount,
-    note: expenses[0].note,
-    createdAt: expenses[0].createdAt
+    description: deposits[1].description,
+    amount: deposits[1].amount,
+    note: deposits[1].note,
+    createdAt: deposits[1].createdAt
   })
 })
 
 test('should set new date on date change', () => {
   const now = moment()
-  const wrapper = shallow(<ExpenseForm />)
+  const wrapper = shallow(<DepositForm />)
   wrapper.find('SingleDatePicker').prop('onDateChange')(now)
   expect(wrapper.state('createdAt')).toEqual(now)
 })
 
 test('should set calendar focus on change', () => {
   const focused = true
-  const wrapper = shallow(<ExpenseForm />)
+  const wrapper = shallow(<DepositForm />)
   wrapper.find('SingleDatePicker').prop('onFocusChange')({ focused })
-  expect(wrapper.state('calendarFocused')).toEqual(focused)  
+  expect(wrapper.state('calendarFocused')).toEqual(focused)
 })

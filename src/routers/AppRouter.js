@@ -11,9 +11,9 @@ import LoginPageForm from '../components/LoginPageForm'
 import PasswordForgetPage from '../components/PasswordForgetPage'
 import SignupPage from '../components/SignupPage'
 // Expense
-import AddExpensePage from '../components/AddExpensePage'
-import EditExpensePage from '../components/EditExpensePage'
-import ExpenseDashboardPage from '../components/ExpenseDashboardPage'
+import AddExpensePage from '../components/Expense//AddExpensePage'
+import EditExpensePage from '../components/Expense//EditExpensePage'
+import ExpenseDashboardPage from '../components/Expense//ExpenseDashboardPage'
 // Deposit
 import DepositDashboardPage from '../components/Deposit/DepositDashboardPage'
 import AddDepositPage from '../components/Deposit/AddDepositPage'

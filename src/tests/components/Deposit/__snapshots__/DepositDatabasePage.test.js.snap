@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render DepositDashboardPage correctly 1`] = `
+<div>
+  <Connect(DepositsSummary) />
+  <Connect(DepositListFilters) />
+  <Connect(DepositList) />
+</div>
+`;

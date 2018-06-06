@@ -1,11 +1,11 @@
 import React from 'react'
-import DepositSummary from './DepositSummary'
+import DepositsSummary from './DepositsSummary'
 import DepositList from './DepositList'
 import DepositListFilters from './DepositListFilters'
 
 const DepositDashboardPage = () => (
   <div>
-    <DepositSummary />
+    <DepositsSummary />
     <DepositListFilters />
     <DepositList />
   </div>

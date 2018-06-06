@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render DepositList with deposits 1`] = `
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Deposit
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Deposit
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <DepositListItem
+      amount={195}
+      createdAt={0}
+      description="Gift"
+      id="1"
+      key="1"
+      note=""
+    />
+    <DepositListItem
+      amount={109500}
+      createdAt={-345600000}
+      description="Project"
+      id="2"
+      key="2"
+      note=""
+    />
+    <DepositListItem
+      amount={4500}
+      createdAt={345600000}
+      description="Pay Day"
+      id="3"
+      key="3"
+      note=""
+    />
+  </div>
+</div>
+`;
+
+exports[`should render DepositList with empty list 1`] = `
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Deposit
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Deposit
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <div
+      className="list-item list-item--message"
+    >
+      <span>
+        No Deposits
+      </span>
+    </div>
+  </div>
+</div>
+`;

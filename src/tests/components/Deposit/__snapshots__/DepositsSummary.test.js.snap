@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render DepositsSummary with 1 deposit 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        1
+      </span>
+       
+      deposit
+       totalling 
+      <span>
+        $
+        1.23
+      </span>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/deposit-create"
+      >
+        Add Deposit
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render DepositsSummary with empty deposits 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span />
+       
+      deposits
+       totalling 
+      <span>
+        $
+        0.00
+      </span>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/deposit-create"
+      >
+        Add Deposit
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render DepositsSummary with multiple deposits 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        4
+      </span>
+       
+      deposits
+       totalling 
+      <span>
+        $
+        1,324.55
+      </span>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/deposit-create"
+      >
+        Add Deposit
+      </Link>
+    </div>
+  </div>
+</div>
+`;
